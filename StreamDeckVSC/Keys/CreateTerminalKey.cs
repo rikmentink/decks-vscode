@@ -7,7 +7,7 @@ namespace StreamDeckVSC.Keys
     [PluginActionId("com.nicollasr.streamdeckvsc.createterminal")]
     public class CreateTerminalKey : KeyBase<CreateTerminalSettings>
     {
-        public CreateTerminalKey(SDConnection connection, InitialPayload payload) : base(connection, payload)
+        public CreateTerminalKey(ISDConnection connection, InitialPayload payload) : base(connection, payload)
         {
         }
 

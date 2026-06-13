@@ -6,6 +6,36 @@
 - Create and execute terminal commands.
 - Insert snippets.
 
+## Building from source
+
+The plugin targets **.NET 8** and builds native binaries for Windows (`win-x64`)
+and Apple Silicon macOS (`osx-arm64`). Packaging is done with a cross-platform
+bash script that uses Elgato's official CLI — no Windows tooling required.
+
+Requirements:
+
+- [.NET SDK](https://dotnet.microsoft.com/download) 8.0 or newer (the 10.x SDK
+  builds the net8.0 target fine).
+- [Node.js](https://nodejs.org/) / `npx` (for `@elgato/cli`).
+- On macOS: the standard command line tools (`codesign`, `lipo`, `file`).
+
+Build both platform artifacts:
+
+```bash
+./build.sh
+```
+
+This produces two `.streamDeckPlugin` files in `dist/`:
+
+- `com.nicollasr.streamdeckvsc.streamDeckPlugin` — Windows (`win-x64`)
+- `com.nicollasr.streamdeckvsc.mac.streamDeckPlugin` — macOS (`osx-arm64`,
+  native Apple Silicon)
+
+To also fold an Intel (`osx-x64`) slice into the macOS executable as a universal
+binary, run `BUILD_UNIVERSAL=1 ./build.sh` (note: only the host executable is
+made universal; the bundled self-contained .NET runtime remains arm64-only, so
+the default arm64 build is recommended for distribution).
+
 ## Getting Started
 
 1. Download _Visual Studio Code_ plugin on Stream Deck Store or [here](https://github.com/nicollasricas/vscode-streamdeck/releases/latest).

@@ -7,7 +7,7 @@ namespace StreamDeckVSC.Keys
     [PluginActionId("com.nicollasr.streamdeckvsc.openfolder")]
     public class OpenFolderKey : KeyBase<OpenFolderSettings>
     {
-        public OpenFolderKey(SDConnection connection, InitialPayload payload) : base(connection, payload)
+        public OpenFolderKey(ISDConnection connection, InitialPayload payload) : base(connection, payload)
         {
         }
 

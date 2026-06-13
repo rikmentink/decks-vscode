@@ -341,3 +341,6 @@ healthchecksdb
 
 # sd targets
 *.streamDeckPlugin
+# Cross-platform build output (build.sh)
+/build/
+/dist/

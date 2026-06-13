@@ -7,7 +7,7 @@ namespace StreamDeckVSC.Keys
     [PluginActionId("com.nicollasr.streamdeckvsc.executecommand")]
     public class ExecuteCommandKey : KeyBase<ExecuteCommandSettings>
     {
-        public ExecuteCommandKey(SDConnection connection, InitialPayload payload) : base(connection, payload)
+        public ExecuteCommandKey(ISDConnection connection, InitialPayload payload) : base(connection, payload)
         {
         }
 
