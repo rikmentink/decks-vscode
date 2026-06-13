@@ -7,7 +7,7 @@ namespace StreamDeckVSC.Keys
     [PluginActionId("com.nicollasr.streamdeckvsc.changelanguage")]
     public class ChangeLanguageKey : KeyBase<ChangeLanguageSettings>
     {
-        public ChangeLanguageKey(SDConnection connection, InitialPayload payload) : base(connection, payload)
+        public ChangeLanguageKey(ISDConnection connection, InitialPayload payload) : base(connection, payload)
         {
         }
 

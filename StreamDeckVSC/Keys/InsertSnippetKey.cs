@@ -7,7 +7,7 @@ namespace StreamDeckVSC.Keys
     [PluginActionId("com.nicollasr.streamdeckvsc.insertsnippet")]
     public class InsertSnippetKey : KeyBase<InsertSnippetSettings>
     {
-        public InsertSnippetKey(SDConnection connection, InitialPayload payload) : base(connection, payload)
+        public InsertSnippetKey(ISDConnection connection, InitialPayload payload) : base(connection, payload)
         {
         }
 

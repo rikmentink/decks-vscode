@@ -4,12 +4,12 @@ using StreamDeckVSC.Settings;
 
 namespace StreamDeckVSC.Keys
 {
-    public abstract class KeyBase<T> : PluginBase where T : KeySettings, new()
+    public abstract class KeyBase<T> : KeypadBase where T : KeySettings, new()
     {
         protected PluginSettings pluginSettings;
         protected T settings;
 
-        public KeyBase(SDConnection connection, InitialPayload payload) : base(connection, payload)
+        public KeyBase(ISDConnection connection, InitialPayload payload) : base(connection, payload)
         {
             if (payload.Settings is null || payload.Settings.Count == 0)
             {
