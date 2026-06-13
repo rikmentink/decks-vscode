@@ -30,6 +30,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Manifest updated for the current Stream Deck 7.x schema (added `UUID`, 4-part
   `Version`, per-platform `OS` / `CodePath`).
 
+### Fixed
+
+- Connection no longer drops (WebSocket close `1011`) every time the editor
+  sends a `ChangeActiveSessionMessage` (i.e. on every VS Code focus change).
+  The shared connection map is now a thread-safe `ConcurrentDictionary`, an
+  exception thrown from a Fleck message callback can no longer tear down the
+  socket, and message sends are wrapped so a send fault is logged instead of
+  surfacing as an unobserved task exception. This also restores button presses,
+  which previously had no stable active session to deliver to.
+- Fleck's internal logging is now routed into the plugin log, so connection
+  errors are visible in `pluginlog.log`.
+
 ### Removed
 
 - `App.config` (unused under .NET Core / .NET 8).
